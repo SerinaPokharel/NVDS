@@ -31,6 +31,7 @@ margin-left: 20px;
 }
 
 .flaticon-water:before { content: "\f100"; }
+
 .flaticon-healthcare:before { content: "\f101"; }
 .flaticon-diet:before { content: "\f102"; }
 .flaticon-education:before { content: "\f103"; }
@@ -40,3 +41,4 @@ margin-left: 20px;
 .flaticon-kindness:before { content: "\f107"; }
 .flaticon-donation:before { content: "\f108"; }
 .flaticon-woman:before { content: "\f109"; }
+.flaticon-renewable-energy:before {content: "\f110";}
