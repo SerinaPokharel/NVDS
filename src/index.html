@@ -651,25 +651,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="contact-form">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form name="sentMessage" id="myForm" onsubmit="handleFormSubmit(this)" novalidate="novalidate">
                             <div class="control-group">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
+                                <button class="btn btn-custom" type="submit">Send Message</button>
                             </div>
                         </form>
                     </div>
@@ -677,7 +677,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <!-- Contact End -->
 
+<script>
 
+  function preventFormSubmit(){
+    var forms=document.querySelectorAll('form');
+    for (var i=0;i<forms.length;i++){
+      forms[i].addEventListener('submit',function(event){
+        event.preventDefault();
+      });
+    }
+  }
+window.addEventListener('load',preventFormSubmit);
+
+function handleFormSubmit(formObject){
+  google.script.run.processForm(formObject);
+  document.getElementById("myForm").reset();
+}
+
+
+</script>
         <!-- Blog Start -->
         <div class="blog">
             <div class="container">
