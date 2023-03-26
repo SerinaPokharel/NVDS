@@ -658,19 +658,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div id="success"></div>
                         <form name="submit-to-google-sheet" novalidate="novalidate">
                             <div class="control-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
+                 
                             <div class="control-group">
-                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
@@ -819,43 +816,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="loader" class="show">
             <div class="loader"></div>
         </div>
- <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzReTD5duIaq2hAYWap8sYljXtmALC_2KMPOKpYEITUjRu98RgoHs1gLsNWAC8lL877SA/exec'
-    
-    const form = document.forms['submit-to-google-sheet']
-    const loading = document.querySelector('.js-loading')
-    const successMessage = document.querySelector('.js-success-message')
-    const errorMessage = document.querySelector('.js-error-message')
-
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      showLoadingIndicator()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => showSuccessMessage(response))
-        .catch(error => showErrorMessage(error))
-    })
-
-    function showLoadingIndicator () {
-      form.classList.add('is-hidden')
-      loading.classList.remove('is-hidden')
-    }
-
-    function showSuccessMessage (response) {
-      console.log('Success!', response)
-      setTimeout(() => {
-        successMessage.classList.remove('is-hidden')
-        loading.classList.add('is-hidden')
-      }, 500)
-    }
-
-    function showErrorMessage (error) {
-      console.error('Error!', error.message)
-      setTimeout(() => {
-        errorMessage.classList.remove('is-hidden')
-        loading.classList.add('is-hidden')
-      }, 500)
-    }
-  </script>
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -871,5 +831,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <!-- Template Javascript -->
         <script src="https://serinapokharel.github.io/NVDS/js/main.js"></script>
+        <script src="https://serinapokharel.github.io/NVDS/js/contact.js"></script>
     </body>
 </html>
