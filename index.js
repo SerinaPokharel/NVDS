@@ -21,6 +21,10 @@ app.get("/donate", (req, res) => {
   res.sendFile(__dirname + "/src/donate.html");
 });
 
+app.get("/cause", (req, res) => {
+  res.sendFile(__dirname + "/src/cause.html");
+});
+
 app.post("/", (req, res) => {
   var subName = req.body.yourname
   var subEmail = req.body.youremail;
